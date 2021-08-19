@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+import socket
+import threading
+
+HOST = socket.gethostbyname(socket.gethostname())
+PORT = 5000
+HEADER_SIZE = 10
+
+class Server:
+    def __init__(self):
+        self.connections = []
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.sock.bind((HOST, PORT))
+        self.sock.listen()
+        
+    def run(self):
+        print("Servidor iniciado. Esperando conexiones...")
+        while True:
+            conn, addr = self.sock.accept()
+            th = threading.Thread(target=self.handle, args=(conn, addr), daemon=True)
+            th.start()
+            print(str(addr[0]) + ":" + str(addr[1]), "Conectado")
+            self.connections.append(conn)
+        
+    def handle(self, conn, addr):
+        while True:
+            try:
+                data_header = conn.recv(HEADER_SIZE)
+                data = conn.recv(int(data_header))
+                for connection in self.connections:
+                    connection.send(data_header + data)
+            except:
+                print(str(addr[0]) + ":" + str(addr[1]), "Desconectado")
+                self.connections.remove(conn)
+                conn.close()
+                break
+            
+def main():
+    server = Server()
+    server.run()
+        
+if __name__ == "__main__":
+    main()
