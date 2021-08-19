@@ -1,0 +1,232 @@
+
+#%%
+import tkinter as tk
+import tkinter.ttk as ttk
+import tkcalendar
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
+import requests
+from datetime import datetime,timedelta
+import threading
+from tkinter.messagebox import showerror, showinfo, askokcancel
+from bs4 import BeautifulSoup
+import pandas as pd
+from matplotlib.figure import Figure
+
+class Monitor:
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Crypto Monitor")
+        self.master.resizable(0, 0)
+        self.master.protocol("WM_DELETE_WINDOW", self.close_app)
+        
+        self.URL      = tk.StringVar() 
+        self.antiguo = 0  
+        monedas = ["BTC-USD","ETH-USD","BCH-USD","LTC-USD","ETC-USD","BAT-USD","ZEC-USD","USDT-USD","XRP-USD","LINK-USD","ADA-USD"] 
+        
+        frm = tk.Frame(self.master)
+        frm.pack(padx=5, pady=5)
+        
+        frm1 = tk.LabelFrame(frm, text="Precio", width=2, font='Arial 10')
+        frm2 = tk.LabelFrame(frm, text="Rango de fecha", width=2, font='Arial 10')
+        frm3 = tk.LabelFrame(frm, text="Tabla de graficos", width=2, font='Arial 10')
+        
+        frm1.pack(padx=5, pady=5)
+        frm2.pack(padx=5, pady=5)
+        frm3.pack(padx=5, pady=5)
+
+        # -------------------------- frm1 --------------------------
+               
+        self.lblCoin    = tk.Label(frm1, text="Moneda:")
+        self.crypto    = ttk.Combobox(frm1, width=20, value = monedas)
+        self.crypto.current(0)
+        self.lbl_precio = tk.Label(frm1, width=11, font='Arial 14 bold')
+        
+        self.lblCoin.grid(row=0, column=0,padx=10, pady=10)
+        self.crypto.grid(row=0, column=1,padx=10, pady=10)
+        self.lbl_precio.grid(row=0, column=2,padx=10, pady=10)
+        
+        self.crypto.bind("<<ComboboxSelected>>", self.Moneda)
+        
+        # -------------------------- frm2 --------------------------
+        
+        self.fecha_inicial  = tkcalendar.DateEntry(frm2, width=15, date_pattern='dd/mm/y')
+        self.fecha_inicial.set_date(datetime.now() + timedelta(-30))
+
+        self.fecha_final  = tkcalendar.DateEntry(frm2, width=15, date_pattern='dd/mm/y') 
+        self.fecha_final.set_date(datetime.now())
+
+        self.btnLeer = tk.Button(frm2, text="Obtener Datos", width=14, command=self.Parametros)
+        
+        self.fecha_inicial.grid(row=0, column=0,padx=10, pady=10)
+        self.fecha_final.grid(row=0, column=1,padx=10, pady=10)
+        self.btnLeer.grid(row=0, column=2,padx=10, pady=10)
+        
+        # -------------------------- frm3 --------------------------
+    
+        self.notebook = ttk.Notebook(frm3)
+        
+    
+        self.tabA = ttk.Treeview(self.notebook, columns=[1,2,3]) # 3 columnas
+        self.tabA.grid(row=0, column=0, columnspan=2, padx=5, pady=5) #expandido en 2 columnas      
+        self.tabA.heading("#0", text="Date", anchor=tk.W)
+        self.tabA.heading("#1", text="Open")
+        self.tabA.heading("#2", text="High")
+        self.tabA.heading("#3", text="Close")
+        self.tabA.column("#0", stretch=False, minwidth=150, width=150)
+        self.tabA.column("#1", stretch=False, minwidth=80, width=80, anchor=tk.CENTER)
+        self.tabA.column("#2", stretch=False, minwidth=80, width=80, anchor=tk.CENTER)
+        self.tabA.column("#3", stretch=False, minwidth=80, width=80, anchor=tk.CENTER)                   
+               
+        self.B = tk.Frame(self.notebook, bg='#FFFFFF')       
+        self.fig = Figure(figsize=(5,4))
+        self.ax = self.fig.add_subplot(111)
+
+        self.fig.set_facecolor('#FFFFFF')   
+        self.graph = FigureCanvasTkAgg(self.fig, master=self.B)
+        self.graph.get_tk_widget().pack()
+              
+        self.notebook.add(self.tabA, text="Tabla de Precios")
+        self.notebook.add(self.B, text="Grafico Precio")        
+        self.notebook.pack()
+        
+        # ------------------------ INFORMACION ------------------------------
+        self.statusBar = tk.Label(self.master, text="", bd=1, relief=tk.SUNKEN, anchor=tk.W)
+        self.statusBar.pack(side=tk.BOTTOM, fill=tk.X)
+        
+        self.crypto.bind("<Enter>", lambda x: self.statusBar.config(text="Seleccionar la cryptomoneda"))
+        self.crypto.bind("<Leave>", lambda x: self.statusBar.config(text=""))
+        self.lbl_precio.bind("<Enter>", lambda x: self.statusBar.config(text="Precio de cryptomoneda en tiempo real"))
+        self.lbl_precio.bind("<Leave>", lambda x: self.statusBar.config(text=""))
+        self.fecha_inicial.bind("<Enter>", lambda x: self.statusBar.config(text="Seleccione la fecha inicial del rango de fecha"))
+        self.fecha_inicial.bind("<Leave>", lambda x: self.statusBar.config(text=""))
+        self.fecha_final.bind("<Enter>", lambda x: self.statusBar.config(text="Seleccione la fecha final del rango de fecha"))
+        self.fecha_final.bind("<Leave>", lambda x: self.statusBar.config(text=""))
+        self.btnLeer.bind("<Enter>", lambda x: self.statusBar.config(text="Dar click para actualizar la tabla de precios y grafico Precio"))
+        self.btnLeer.bind("<Leave>", lambda x: self.statusBar.config(text=""))
+        
+        self.notebook.bind("<Enter>", lambda x: self.statusBar.config(text="Seleccione una pestaña"))
+        self.notebook.bind("<Leave>", lambda x: self.statusBar.config(text=""))
+        self.tabA.bind("<Enter>", lambda x: self.statusBar.config(text="Tabla de Precios"))
+        self.tabA.bind("<Leave>", lambda x: self.statusBar.config(text=""))
+        self.B.bind("<Enter>", lambda x: self.statusBar.config(text="Grafico Precio"))
+        self.B.bind("<Leave>", lambda x: self.statusBar.config(text=""))
+        
+        
+        
+        self.Moneda(self.crypto.get())
+        self.Parametros()
+        self.master.after(10,self.Aparte)
+        
+        print("Actualización de precio de la moneda cada 5 segundos en tiempo real")
+        print("===================================================================")
+        
+    def Moneda(self, event):
+        #print(self.crypto.get())
+        self.antiguo = 0 
+        self.Parametros()
+#        self.master.after(10, self.Aparte)
+        
+    def Aparte(self):
+        thr = threading.Thread(target=self.update_precios, daemon=True)
+        thr.start()
+    
+    def update_precios(self):
+        var = self.crypto.get()         
+        URL = f"https://api.coinbase.com/v2/prices/{var}/spot"
+        r = requests.get(URL) 
+        data = r.json()
+        precio_actual = float(data['data']['amount'])
+
+        diferencia = precio_actual - self.antiguo                    
+        #print(diferencia)
+        
+        if self.antiguo!=0:
+            print(f"Precio actual: {precio_actual:,.2f}")
+            print(f"Precio hace 5 segundos: {self.antiguo:,.2f}")
+            if   diferencia< 0: 
+                self.lbl_precio.config(text=f"{precio_actual:,.2f} USD", fg="red")
+                print(f"Disminuyó la moneda en {diferencia:,.2f}\n")
+            elif diferencia> 0: 
+                self.lbl_precio.config(text=f"{precio_actual:,.2f} USD", fg="green")
+                print(f"Aumento la moneda en {diferencia:,.2f}\n")
+                
+            else: 
+                self.lbl_precio.config(text=f"{precio_actual:,.2f} USD", fg="black")
+                print("La moneda no ha subido ni bajado de precio\n")
+        else:
+            self.lbl_precio.config(text=f"{precio_actual:,.2f} USD", fg="black")
+                    
+        self.antiguo = float(data['data']['amount']) 
+        # REPITE -----------------------------------------------
+        self.master.after(5000, self.update_precios)
+    
+        
+    def Parametros(self):
+          
+        if self.fecha_inicial.get_date() > self.fecha_final.get_date():
+            showerror("Error", "Error de rango de fechas ingresadas")
+            self.fecha_inicial.set_date(datetime.now() + timedelta(-30))
+            self.fecha_final.set_date(datetime.now())
+        select = self.crypto.get()     
+        
+        dia_ini = self.fecha_inicial.get_date()
+        dia_fin = self.fecha_final.get_date()
+                   
+        dia_ini="{}{:02d}{:02d}".format(dia_ini.year,dia_ini.month,dia_ini.day)
+        dia_fin="{}{:02d}{:02d}".format(dia_fin.year,dia_fin.month,dia_fin.day)
+        
+        dia_ini = pd.to_datetime(dia_ini)
+        dia_fin = pd.to_datetime(dia_fin)
+        dia_ini = int(dia_ini.timestamp())
+        dia_fin = int(dia_fin.timestamp())
+        
+        url = f"https://finance.yahoo.com/quote/{select}/history?period1={dia_ini}&period2={dia_fin}&interval=1d&filter=history&frequency=1d&includeAdjustedClose=true"        
+        #print(url_)
+        link_r = requests.get(url)
+
+        soup = BeautifulSoup(link_r.text, 'html')
+        informacion = []
+        informacion_1 = []        
+        datos_ob = []
+        datos_ob_2 = []
+        
+        for info in soup.find_all('tr', attrs={"class":"BdT Bdc($seperatorColor) Ta(end) Fz(s) Whs(nw)"}):
+            informacion_1 = [] 
+            datos_ob_2 = [] 
+            for idx, i in enumerate (info.find_all('td'), start=0):
+                #print(i.text)
+                if idx == 0: informacion_1.append(i.text)
+                elif idx in [1,2,4]: 
+                    if i.text=='-': informacion_1.append('-')
+                    else: informacion_1.append(float(i.text.replace(',','')))
+                if idx in [0,1,2,4]: datos_ob_2.append(i.text)
+            informacion.append(informacion_1) 
+            datos_ob.append(datos_ob_2) 
+        
+                       
+        self.tabA.delete(*self.tabA.get_children())
+        for i in datos_ob:
+            self.tabA.insert("", tk.END, text=i[0] , values=i[1:])
+        
+        # Grafica        
+        data = [ii for ii in informacion]        
+        tabla_total = pd.DataFrame(data, columns=['Date', 'Open', 'High', 'Close'])
+        tabla_total.index = pd.DatetimeIndex(pd.to_datetime(tabla_total["Date"]))
+        tabla_total.drop(columns="Date", inplace= True)
+        tabla_total.drop(tabla_total[tabla_total['Close'].apply(lambda x: isinstance(x, str))].index, inplace=True)
+        #print(tabla_total)
+        tabla_total.drop(["Open","High"],axis=1,inplace=True)
+        self.ax.cla()
+        self.ax.set_xlabel("Fecha")
+        tabla_total.plot(ax=self.ax,color='blue')
+        self.graph.draw()
+        
+    def close_app(self):
+        # Se muestra una ventana emergente para confirmar la salida de la aplicacion
+        if askokcancel("Salir", "Desea salir de la aplicacion?"):
+            self.master.destroy()            
+
+root = tk.Tk()
+Monitor = Monitor(root)
+root.mainloop()
