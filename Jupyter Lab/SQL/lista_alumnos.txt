@@ -1,0 +1,21 @@
+ u201510905 Menú Opciones: Nombre de usuario	Cesar Augusto	Bardales Loarte	u201510905@upc.edu.pe	Estudiante		Sí
+ u201513319 Menú Opciones: Nombre de usuario	Jesus	Bernuy Ramirez	u201513319@upc.edu.pe	Estudiante		Sí
+ u201621990 Menú Opciones: Nombre de usuario	José Edison	Bobadilla Chancafe	u201621990@upc.edu.pe	Estudiante		Sí
+ u201610674 Menú Opciones: Nombre de usuario	Kevin Poll Jharson	Cachique Agreda	u201610674@upc.edu.pe	Estudiante		Sí
+ u201620163 Menú Opciones: Nombre de usuario	Bryan Harold	Cerda Flores	u201620163@upc.edu.pe	Estudiante		Sí
+ u201425507 Menú Opciones: Nombre de usuario	Sebastian Elias	Garcia Guerra	u201425507@upc.edu.pe	Estudiante		Sí
+ u201719264 Menú Opciones: Nombre de usuario	Yorman Manuel	Gil Alvarado	u201719264@upc.edu.pe	Estudiante		Sí
+ u201713638 Menú Opciones: Nombre de usuario	Cecilia Sucyen	Koochoy Wong	u201713638@upc.edu.pe	Estudiante		Sí
+ u201421391 Menú Opciones: Nombre de usuario	Jose Luis	Ludeña Sevilla	u201421391@upc.edu.pe	Estudiante		Sí
+ u20151c262 Menú Opciones: Nombre de usuario	Sara Milagros	Marquez Zapata	u20151c262@upc.edu.pe	Estudiante		Sí
+ u20181e444 Menú Opciones: Nombre de usuario	Fabricio Jose	Miranda Durand	u20181e444@upc.edu.pe	Estudiante		Sí
+ u201523291 Menú Opciones: Nombre de usuario	Anthony Frank	Molina Diaz	u201523291@upc.edu.pe	Estudiante		Sí
+ u201614986 Menú Opciones: Nombre de usuario	Victor Alonso	Nuñez Cabrera	u201614986@upc.edu.pe	Estudiante		Sí
+ u201623405 Menú Opciones: Nombre de usuario	Jorge Marcelo	Rebaza Bartra	u201623405@upc.edu.pe	Estudiante		Sí
+ u201811680 Menú Opciones: Nombre de usuario	Kevin Elmer	Rodriguez Peralta	u201811680@upc.edu.pe	Estudiante		Sí
+ u201517193 Menú Opciones: Nombre de usuario	Maikol Brandon	Sanchez Gomez	u201517193@upc.edu.pe	Estudiante		Sí
+ u201710871 Menú Opciones: Nombre de usuario	Tathyana Leyla	Sotomayor Anco	u201710871@upc.edu.pe	Estudiante		Sí
+ u201617457 Menú Opciones: Nombre de usuario	Yerson Walter	Torres Santos	u201617457@upc.edu.pe	Estudiante		Sí
+ u201515612 Menú Opciones: Nombre de usuario	Gian Carlo	Tuesta Ocampo	u201515612@upc.edu.pe	Estudiante		Sí
+ u201622015 Menú Opciones: Nombre de usuario	Julio Tokujiro	Uyejara Bustamante	u201622015@upc.edu.pe	Estudiante		Sí
+ u201516659 Menú Opciones: Nombre de usuario	Cristian Andres	Vasquez Levano	u201516659@upc.edu.pe	Estudiante		Sí
