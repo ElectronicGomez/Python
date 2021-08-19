@@ -1,0 +1,152 @@
+Nombre:
+
+Fecha:
+
+Periodo:
+
+                    Capitales por departamento - Test 7
+
+1. ¿Cuál es la capital de Áncash?:
+	A. Piura
+	B. Huaraz
+	C. Pucallpa
+	D. Iquitos
+
+2. ¿Cuál es la capital de Loreto?:
+	A. Moquegua
+	B. Iquitos
+	C. Ica
+	D. Puerto Maldonado
+
+3. ¿Cuál es la capital de Pasco?:
+	A. Piura
+	B. Iquitos
+	C. Cerro de Pasco
+	D. Abancay
+
+4. ¿Cuál es la capital de Huánuco?:
+	A. Lima
+	B. Moquegua
+	C. Huánuco
+	D. Moyobamba
+
+5. ¿Cuál es la capital de Piura?:
+	A. Piura
+	B. Cajamarca
+	C. Pucallpa
+	D. Tacna
+
+6. ¿Cuál es la capital de Cajamarca?:
+	A. Chiclayo
+	B. Tacna
+	C. Cajamarca
+	D. Iquitos
+
+7. ¿Cuál es la capital de Madre de Dios?:
+	A. Pucallpa
+	B. Tumbes
+	C. Cusco
+	D. Puerto Maldonado
+
+8. ¿Cuál es la capital de Amazonas?:
+	A. Huaraz
+	B. Chachapoyas
+	C. Huánuco
+	D. Tacna
+
+9. ¿Cuál es la capital de Tumbes?:
+	A. Huánuco
+	B. Tumbes
+	C. Moquegua
+	D. Tacna
+
+10. ¿Cuál es la capital de Cusco?:
+	A. Puno
+	B. Huancavelica
+	C. Huancayo
+	D. Cusco
+
+11. ¿Cuál es la capital de Arequipa?:
+	A. Arequipa
+	B. Huánuco
+	C. Cajamarca
+	D. Moyobamba
+
+12. ¿Cuál es la capital de Tacna?:
+	A. Moyobamba
+	B. Huaraz
+	C. Tacna
+	D. Puerto Maldonado
+
+13. ¿Cuál es la capital de Ica?:
+	A. Piura
+	B. Tacna
+	C. Huancavelica
+	D. Ica
+
+14. ¿Cuál es la capital de Puno?:
+	A. Puno
+	B. Trujillo
+	C. Iquitos
+	D. Tacna
+
+15. ¿Cuál es la capital de Lambayeque?:
+	A. Tumbes
+	B. Chiclayo
+	C. Ayacucho
+	D. Huancavelica
+
+16. ¿Cuál es la capital de Moquegua?:
+	A. Moquegua
+	B. Tumbes
+	C. Cusco
+	D. Cerro de Pasco
+
+17. ¿Cuál es la capital de La Libertad?:
+	A. Arequipa
+	B. Puerto Maldonado
+	C. Trujillo
+	D. Huánuco
+
+18. ¿Cuál es la capital de San Martín?:
+	A. Iquitos
+	B. Tumbes
+	C. Abancay
+	D. Moyobamba
+
+19. ¿Cuál es la capital de Apurímac?:
+	A. Tacna
+	B. Abancay
+	C. Puno
+	D. Moyobamba
+
+20. ¿Cuál es la capital de Ayacucho?:
+	A. Ayacucho
+	B. Puno
+	C. Moquegua
+	D. Cusco
+
+21. ¿Cuál es la capital de Lima?:
+	A. Lima
+	B. Chachapoyas
+	C. Iquitos
+	D. Tacna
+
+22. ¿Cuál es la capital de Junín?:
+	A. Piura
+	B. Huánuco
+	C. Huancayo
+	D. Moquegua
+
+23. ¿Cuál es la capital de Huancavelica?:
+	A. Piura
+	B. Moquegua
+	C. Huánuco
+	D. Huancavelica
+
+24. ¿Cuál es la capital de Ucayali?:
+	A. Puerto Maldonado
+	B. Pucallpa
+	C. Lima
+	D. Tumbes
+

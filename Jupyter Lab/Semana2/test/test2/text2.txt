@@ -1,0 +1,152 @@
+Nombre:
+
+Fecha:
+
+Periodo:
+
+                    Capitales por departamento - Test 2
+
+1. ¿Cuál es la capital de Lambayeque?:
+	A. Chachapoyas
+	B. Tumbes
+	C. Chiclayo
+	D. Trujillo
+
+2. ¿Cuál es la capital de Huancavelica?:
+	A. Trujillo
+	B. Ayacucho
+	C. Huaraz
+	D. Huancavelica
+
+3. ¿Cuál es la capital de Loreto?:
+	A. Cajamarca
+	B. Iquitos
+	C. Moquegua
+	D. Cerro de Pasco
+
+4. ¿Cuál es la capital de Ica?:
+	A. Huánuco
+	B. Moquegua
+	C. Cusco
+	D. Ica
+
+5. ¿Cuál es la capital de Piura?:
+	A. Chiclayo
+	B. Tumbes
+	C. Piura
+	D. Huaraz
+
+6. ¿Cuál es la capital de Huánuco?:
+	A. Cerro de Pasco
+	B. Arequipa
+	C. Huánuco
+	D. Puno
+
+7. ¿Cuál es la capital de La Libertad?:
+	A. Huancayo
+	B. Trujillo
+	C. Moquegua
+	D. Piura
+
+8. ¿Cuál es la capital de Cusco?:
+	A. Lima
+	B. Cusco
+	C. Tacna
+	D. Huánuco
+
+9. ¿Cuál es la capital de Puno?:
+	A. Puerto Maldonado
+	B. Arequipa
+	C. Ica
+	D. Puno
+
+10. ¿Cuál es la capital de San Martín?:
+	A. Chiclayo
+	B. Pucallpa
+	C. Cerro de Pasco
+	D. Moyobamba
+
+11. ¿Cuál es la capital de Ayacucho?:
+	A. Tacna
+	B. Ayacucho
+	C. Chiclayo
+	D. Huancavelica
+
+12. ¿Cuál es la capital de Moquegua?:
+	A. Ica
+	B. Cusco
+	C. Moquegua
+	D. Moyobamba
+
+13. ¿Cuál es la capital de Junín?:
+	A. Tacna
+	B. Lima
+	C. Ica
+	D. Huancayo
+
+14. ¿Cuál es la capital de Áncash?:
+	A. Tumbes
+	B. Chachapoyas
+	C. Huaraz
+	D. Puerto Maldonado
+
+15. ¿Cuál es la capital de Madre de Dios?:
+	A. Puerto Maldonado
+	B. Tumbes
+	C. Tacna
+	D. Trujillo
+
+16. ¿Cuál es la capital de Cajamarca?:
+	A. Cajamarca
+	B. Tacna
+	C. Cerro de Pasco
+	D. Pucallpa
+
+17. ¿Cuál es la capital de Apurímac?:
+	A. Huancayo
+	B. Ica
+	C. Abancay
+	D. Puno
+
+18. ¿Cuál es la capital de Tumbes?:
+	A. Puno
+	B. Tumbes
+	C. Cerro de Pasco
+	D. Tacna
+
+19. ¿Cuál es la capital de Ucayali?:
+	A. Lima
+	B. Huaraz
+	C. Cajamarca
+	D. Pucallpa
+
+20. ¿Cuál es la capital de Amazonas?:
+	A. Ayacucho
+	B. Cerro de Pasco
+	C. Chachapoyas
+	D. Cusco
+
+21. ¿Cuál es la capital de Arequipa?:
+	A. Pucallpa
+	B. Moyobamba
+	C. Ica
+	D. Arequipa
+
+22. ¿Cuál es la capital de Pasco?:
+	A. Ica
+	B. Huancavelica
+	C. Cerro de Pasco
+	D. Abancay
+
+23. ¿Cuál es la capital de Lima?:
+	A. Lima
+	B. Tacna
+	C. Arequipa
+	D. Chachapoyas
+
+24. ¿Cuál es la capital de Tacna?:
+	A. Moquegua
+	B. Ica
+	C. Huancavelica
+	D. Tacna
+
